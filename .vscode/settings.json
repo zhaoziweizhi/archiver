@@ -1,0 +1,28 @@
+/* eslint jsonc/sort-keys: ["error", "asc"] */
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "never"
+  },
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": false,
+  "editor.insertSpaces": true,
+  "editor.linkedEditing": true,
+  "editor.tabSize": 2,
+  "eslint.enable": true,
+  "eslint.useFlatConfig": true,
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "markdown",
+    "json",
+    "jsonc",
+    "yaml"
+  ],
+  "explorer.fileNesting.enabled": false,
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true
+}

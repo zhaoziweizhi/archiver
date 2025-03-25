@@ -1,0 +1,14 @@
+/* eslint jsonc/sort-keys: ["error", "asc"] */
+/* eslint jsonc/array-bracket-newline: ["error", "always"] */
+/* eslint jsonc/array-element-newline: ["error", "always"] */
+/* eslint jsonc/sort-array-values: ["error", { pathPattern: ".*", order: { type: "asc" } }] */{
+  "ignorePaths": [
+    ".git",
+    "node_modules",
+    "pnpm-lock.yaml"
+  ],
+  "words": [
+    "unocss",
+    "zhzwz"
+  ]
+}
