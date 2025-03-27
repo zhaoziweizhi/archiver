@@ -28,3 +28,18 @@ pnpm add -D @zhzwz/archiver
 # 直接使用 archiver 命令即可
 pnpm archiver dist FileName --time-suffix
 ```
+
+## Q&A
+
+### Error: `import: command not found`
+
+使用 node 命令调用指定的 cli 文件
+
+```sh
+# install
+npm install -D @zhzwz/archiver
+# use cli.mjs
+node node_modules/@zhzwz/archiver/dist/cli.mjs dist FileName --time-suffix
+# or use cli.cjs
+node node_modules/@zhzwz/archiver/dist/cli.cjs dist FileName --time-suffix
+```
