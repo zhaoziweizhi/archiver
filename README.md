@@ -1,7 +1,8 @@
-# @zhzwz/node-zip
+# @zhzwz/archiver
 
-<!--
-COREPACK_INTEGRITY_KEYS=0 corepack use pnpm@10
-pnpm add -D eslint@latest @antfu/eslint-config@latest
-pnpm add -D unbuild
--->
+一个简单的压缩工具，可以通过命令行直接使用。
+
+```sh
+# 压缩 dist 目录并添加时间后缀
+pnpm archiver dist --time-suffix
+```
