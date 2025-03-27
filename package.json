@@ -21,9 +21,7 @@
   },
   "dependencies": {
     "archiver": "^6.0.1",
-    "cac": "^6.7.14",
-    "node-zip": "link:../../../../Users/zhzwz/Library/pnpm/global/5/node_modules/@zhzwz/node-zip",
-    "remove": "link:../../../../Users/zhzwz/Library/pnpm/global/5/node_modules/remove"
+    "cac": "^6.7.14"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.11.0",
@@ -33,7 +31,7 @@
     "typescript": "^5.4.2",
     "unbuild": "^3.5.0"
   },
-  "pnpm": {
-    "overrides": {}
+  "publishConfig": {
+    "access": "public"
   }
 }
