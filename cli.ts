@@ -9,7 +9,6 @@ cli
   .option('--output', '输出文件 - name of the output zip file')
   .option('--time-suffix', '时间后缀', { default: false })
   .action(async (input, rename, options) => {
-    console.log(`开始压缩 ${input}...`)
     const suffix = `-${new Date().toLocaleString('zh', {
       year: 'numeric',
       month: '2-digit',
@@ -27,7 +26,6 @@ cli
     ].join('')
 
     await zip(input, output)
-    console.log('压缩完成')
   })
 
 cli.help()

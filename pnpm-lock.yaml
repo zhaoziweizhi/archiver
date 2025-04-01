@@ -4,10 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  remove: link:../../../../Users/zhzwz/Library/pnpm/global/5/node_modules/remove
-  node-zip: link:../../../../Users/zhzwz/Library/pnpm/global/5/node_modules/@zhzwz/node-zip
-
 importers:
 
   .:
@@ -18,12 +14,9 @@ importers:
       cac:
         specifier: ^6.7.14
         version: 6.7.14
-      node-zip:
-        specifier: link:../../../../Users/zhzwz/Library/pnpm/global/5/node_modules/@zhzwz/node-zip
-        version: link:../../../../Users/zhzwz/Library/pnpm/global/5/node_modules/@zhzwz/node-zip
-      remove:
-        specifier: link:../../../../Users/zhzwz/Library/pnpm/global/5/node_modules/remove
-        version: link:../../../../Users/zhzwz/Library/pnpm/global/5/node_modules/remove
+      picocolors:
+        specifier: ^1.1.1
+        version: 1.1.1
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^4.11.0
