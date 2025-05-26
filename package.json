@@ -1,7 +1,7 @@
 {
   "name": "@zhzwz/archiver",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "packageManager": "pnpm@10.8.0",
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -13,7 +13,6 @@
     "dist"
   ],
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
     "dev": "unbuild --stub",
     "build": "unbuild",
     "lint": "eslint .",
