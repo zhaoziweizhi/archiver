@@ -1,8 +1,12 @@
 /* eslint jsonc/sort-keys: ["error", "asc"] */
+/* eslint jsonc/array-bracket-newline: ["error", "always"] */
+/* eslint jsonc/array-element-newline: ["error", "always"] */
+/* eslint jsonc/sort-array-values: ["error", { pathPattern: ".*", order: { type: "asc" } }] */
+/* eslint jsonc/comma-dangle: ["error", "always"] */
 {
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit",
-    "source.organizeImports": "never"
+    "source.organizeImports": "never",
   },
   "editor.detectIndentation": false,
   "editor.formatOnSave": false,
@@ -13,16 +17,16 @@
   "eslint.useFlatConfig": true,
   "eslint.validate": [
     "javascript",
-    "typescript",
-    "markdown",
     "json",
     "jsonc",
-    "yaml"
+    "markdown",
+    "typescript",
+    "yaml",
   ],
   "explorer.fileNesting.enabled": false,
   "files.encoding": "utf8",
   "files.eol": "\n",
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
-  "files.trimTrailingWhitespace": true
+  "files.trimTrailingWhitespace": true,
 }

@@ -10,42 +10,28 @@ const cli = cac('archiver')
 
 cli
   .command('[input] <output>', '压缩指定目录至文件名')
-  // .option('--output', '输出文件 - name of the output file')
-  .option('--format <format>', '格式 - format of the output file', { default: 'zip', type: ['zip', 'tar'] })
-  .option('--version-suffix', '版本后缀', { default: false })
-  .option('--time-suffix', '时间后缀', { default: false })
+  .option('-f, --format <format>', '格式 - format of the output file', { default: 'zip' })
+  .option('-v, --version-suffix', '版本后缀', { default: false })
+  .option('-t, --time-suffix', '时间后缀', { default: false })
   .action(async (input, rename, options) => {
-    const timeSuffix = `-${new Date().toLocaleString('zh', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: false,
-    }).replace(/[/\s]/g, '-').replace(/:/g, '')}`
-
-    // "zip" | "tar"
-    const format: Format = options.format ?? 'zip'
-
+    const timeSuffix = getTimeSuffix()
+    const format: Format = options.format ?? 'zip' // "zip" | "tar"
     const output = [
-      rename || input, // options.output ||
+      rename || input,
       getVersionSuffix(options.versionSuffix),
       options.timeSuffix ? timeSuffix : '',
-      '.',
-      format,
+      '.', format,
     ].join('')
 
     await zip(input, output, format)
   })
-// cli.command('list', '列出压缩包中的文件')
+
 cli.help()
-cli.version(version)
+cli.version(version, '--version')
 cli.parse()
 
-function getVersionSuffix(value: any) {
-  // --version-suffix
-  if (value === true) {
+function getVersionSuffix(value: boolean) {
+  if (value) {
     const packageJsonPath = path.resolve(process.cwd(), 'package.json')
     if (fs.existsSync(packageJsonPath)) {
       const packageJsonText = fs.readFileSync(packageJsonPath, 'utf8')
@@ -55,10 +41,17 @@ function getVersionSuffix(value: any) {
       }
     }
   }
-  // --version-suffix [VERSION]
-  if (typeof value === 'string') {
-    return `-v${value}`
-  }
-  // null
   return ''
+}
+
+function getTimeSuffix() {
+  return `-${new Date().toLocaleString('zh', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+  }).replace(/[/\s]/g, '-').replace(/:/g, '')}`
 }

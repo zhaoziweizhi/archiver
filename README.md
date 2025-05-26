@@ -2,7 +2,7 @@
 
 一个简单的压缩工具，可以通过命令行直接使用。
 
-## 直接使用
+## Quick Start
 
 ```sh
 # [npm]
@@ -25,7 +25,7 @@ pnpm dlx @zhzwz/archiver dist FileName --time-suffix
 pnpm dlx @zhzwz/archiver dist FileName --version-suffix --time-suffix
 ```
 
-## 安装使用
+## Usage
 
 ```sh
 # 安装
@@ -45,7 +45,14 @@ pnpm archiver dist FileName --time-suffix
 # install
 npm install -D @zhzwz/archiver
 # use cli.mjs
-node node_modules/@zhzwz/archiver/dist/cli.mjs dist FileName --time-suffix
+node node_modules/@zhzwz/archiver/dist/cli.js  dist FileName --time-suffix
 # or use cli.cjs
 node node_modules/@zhzwz/archiver/dist/cli.cjs dist FileName --time-suffix
 ```
+
+## Credits
+
+- archiver - [GitHub][github-archiver] | [NPM][npm-archiver]
+
+[github-archiver]: https://github.com/archiverjs/node-archiver
+[npm-archiver]: https://www.npmjs.com/package/archiver
