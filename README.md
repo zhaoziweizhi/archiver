@@ -15,8 +15,14 @@ pnpm dlx @zhzwz/archiver dist
 # dist => FileName.zip
 pnpm dlx @zhzwz/archiver dist FileName
 
+# dist => FileName-v0.2.0.zip
+pnpm dlx @zhzwz/archiver dist FileName --version-suffix
+
 # dist => FileName-yyyy-MM-dd-HHmmss.zip
 pnpm dlx @zhzwz/archiver dist FileName --time-suffix
+
+# dist => FileName-v0.2.0-yyyy-MM-dd-HHmmss.zip
+pnpm dlx @zhzwz/archiver dist FileName --version-suffix --time-suffix
 ```
 
 ## 安装使用

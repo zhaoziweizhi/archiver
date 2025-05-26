@@ -1,3 +1,4 @@
+import type { Format } from 'archiver'
 import fs from 'node:fs'
 import path from 'node:path'
 import process from 'node:process'
@@ -8,8 +9,9 @@ import { version } from './package.json'
 const cli = cac('archiver')
 
 cli
-  .command('[input] <rename>', '压缩指定目录或文件')
-  .option('--output', '输出文件 - name of the output zip file')
+  .command('[input] <output>', '压缩指定目录至文件名')
+  // .option('--output', '输出文件 - name of the output file')
+  .option('--format <format>', '格式 - format of the output file', { default: 'zip', type: ['zip', 'tar'] })
   .option('--version-suffix', '版本后缀', { default: false })
   .option('--time-suffix', '时间后缀', { default: false })
   .action(async (input, rename, options) => {
@@ -23,16 +25,20 @@ cli
       hour12: false,
     }).replace(/[/\s]/g, '-').replace(/:/g, '')}`
 
+    // "zip" | "tar"
+    const format: Format = options.format ?? 'zip'
+
     const output = [
-      rename || options.output || input,
+      rename || input, // options.output ||
       getVersionSuffix(options.versionSuffix),
       options.timeSuffix ? timeSuffix : '',
-      '.zip',
+      '.',
+      format,
     ].join('')
 
-    await zip(input, output)
+    await zip(input, output, format)
   })
-cli.command('list', '列出压缩包中的文件')
+// cli.command('list', '列出压缩包中的文件')
 cli.help()
 cli.version(version)
 cli.parse()

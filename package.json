@@ -21,17 +21,17 @@
     "release": "pnpm publish"
   },
   "dependencies": {
-    "archiver": "^6.0.1",
+    "archiver": "^7.0.1",
     "cac": "^6.7.14",
     "picocolors": "^1.1.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.11.0",
+    "@antfu/eslint-config": "^4.13.2",
     "@types/archiver": "^6.0.2",
-    "@types/node": "^20.11.30",
-    "eslint": "^9.23.0",
+    "@types/node": "^22.15.21",
+    "eslint": "^9.27.0",
     "rimraf": "^6.0.1",
-    "typescript": "^5.4.2",
+    "typescript": "^5.8.3",
     "unbuild": "^3.5.0"
   },
   "publishConfig": {

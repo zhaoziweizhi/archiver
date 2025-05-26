@@ -1,11 +1,26 @@
+import type { ArchiverOptions, Format, TarOptions, ZipOptions } from 'archiver'
 import { createWriteStream } from 'node:fs'
 import createArchiver from 'archiver'
 import colors from 'picocolors'
 
-export async function zip(input: string, output: string) {
-  console.log(`${colors.cyan('[archiver]')} start zipping ${input}...`)
+export async function zip(input: string, output: string, format: Format) {
+  console.log(`${colors.cyan('[archiver]')} start archive ${input}...`)
+  console.log(`${colors.cyan('[archiver]')} format: ${format}`)
 
-  const archiver = createArchiver('zip', { zlib: { level: 9 } })
+  const optionsZip: ZipOptions = {
+    zlib: { level: 9 },
+  }
+  const optionsTar: TarOptions = {
+    gzip: true,
+    gzipOptions: { level: 9 },
+  }
+
+  const archiverOptions: ArchiverOptions = {
+    zip: optionsZip,
+    tar: optionsTar,
+  }[format] ?? {}
+
+  const archiver = createArchiver(format, archiverOptions)
 
   const stream = createWriteStream(output)
   stream.on('warning', error => console.warn(error))
