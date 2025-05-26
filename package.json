@@ -3,21 +3,27 @@
   "type": "module",
   "version": "0.2.0",
   "packageManager": "pnpm@10.8.0",
-  "main": "./dist/index.mjs",
+  "exports": {
+    ".": "./dist/index.js",
+    "./cli": "./dist/cli.js",
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "@zhzwz/archiver": "./dist/cli.mjs",
-    "archiver": "./dist/cli.mjs"
+    "@zhzwz/archiver": "./dist/cli.js",
+    "archiver": "./dist/cli.js"
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "dev": "unbuild --stub",
-    "build": "unbuild",
+    "dev": "tsdown --watch",
+    "build": "tsdown",
     "lint": "eslint .",
     "clean": "rimraf *.zip",
-    "prepublishOnly": "pnpm build",
+    "prepublishOnly": "bumpp && pnpm build",
     "release": "pnpm publish"
   },
   "dependencies": {
@@ -29,10 +35,11 @@
     "@antfu/eslint-config": "^4.13.2",
     "@types/archiver": "^6.0.2",
     "@types/node": "^22.15.21",
+    "bumpp": "^10.1.1",
     "eslint": "^9.27.0",
     "rimraf": "^6.0.1",
-    "typescript": "^5.8.3",
-    "unbuild": "^3.5.0"
+    "tsdown": "^0.12.3",
+    "typescript": "^5.8.3"
   },
   "publishConfig": {
     "access": "public"
